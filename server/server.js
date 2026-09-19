@@ -29,11 +29,15 @@ app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
 app.use(express.json());
 app.use(cookieParser());
 
+app.use('/api', (req, res, next) => {
+    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    next();
+});
+
 app.use(cors({
     origin: allowedOrigins,
     credentials: true
 }));
-
 
 app.use('/api/user', userRouter)
 app.use('/api/seller', sellerRouter)

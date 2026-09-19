@@ -4,7 +4,7 @@ import { dummyProducts } from "../assets/assets";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-aaxios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 axios.defaults.baseURL =
     window.location.hostname === "localhost"
