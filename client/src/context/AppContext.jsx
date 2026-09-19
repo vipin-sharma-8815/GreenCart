@@ -6,10 +6,13 @@ import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
-// In production, Vercel proxies /api requests to the backend so auth cookies
-// stay on the same origin. Locally, use the Express server on port 4000.
-axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL ||
-    (window.location.hostname === "localhost" ? "http://localhost:4000" : "");
+// Local: call Express directly.
+// Production: use the frontend's /api proxy so the auth cookie stays
+// on the same browser origin.
+axios.defaults.baseURL =
+    window.location.hostname === "localhost"
+        ? "http://localhost:4000"
+        : "";
 
 export const AppContext = createContext();
 
