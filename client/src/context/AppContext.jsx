@@ -193,6 +193,7 @@ const fetchProducts = async () => {
         axios,
         fetchProducts,
         setCartItems,
+        fetchUser,
     };
 
 
