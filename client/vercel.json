@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
@@ -22,3 +23,17 @@
     }
   ]
 }
+=======
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://green-cart-gules.vercel.app/api/:path*"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/index.html"
+      }
+    ]
+  }
+>>>>>>> 18c2ba5 (Fix production authentication)

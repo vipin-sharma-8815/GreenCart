@@ -4,16 +4,14 @@ import { dummyProducts } from "../assets/assets";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-axios.defaults.withCredentials = true;
+aaxios.defaults.withCredentials = true;
 
-// Local: call Express directly.
-// Production: use the frontend's /api proxy so the auth cookie stays
-// on the same browser origin.
 axios.defaults.baseURL =
     window.location.hostname === "localhost"
         ? "http://localhost:4000"
         : "";
 
+        
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {

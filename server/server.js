@@ -29,19 +29,10 @@ app.post('/stripe', express.raw({type: 'application/json'}), stripeWebhooks)
 app.use(express.json());
 app.use(cookieParser());
 
-// Authentication/cart/order responses must never be cached.
-app.use('/api', (req, res, next) => {
-    res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-    next();
-});
 app.use(cors({
     origin: allowedOrigins,
     credentials: true
 }));
-
-app.get("/", (req, res) => {
-res.send("API is Working");
-});
 
 
 app.use('/api/user', userRouter)
